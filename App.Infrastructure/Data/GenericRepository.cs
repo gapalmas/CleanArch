@@ -47,14 +47,7 @@ namespace App.Infrastructure.Data
         }
         #endregion
         #region 'READ'
-        public bool Exist(Expression<Func<T, bool>> matchitem)
-        {
-            return _dbContext.Set<T>().SingleOrDefault(matchitem) != null;
-        }
-        public async Task<bool> ExistAsync(Expression<Func<T, bool>> matchitem)
-        {
-            return await _dbContext.Set<T>().SingleOrDefaultAsync(matchitem) != null;
-        }
+        
         public T Find(Expression<Func<T, bool>> matchitem)
         {
             return _dbContext.Set<T>().SingleOrDefault(matchitem);
@@ -167,7 +160,15 @@ namespace App.Infrastructure.Data
         }
         #endregion
         #region 'EXISTS'
-        public bool Exists(Expression<Func<T, bool>> matchitem)
+        public bool Exist(Expression<Func<T, bool>> matchitem) /*Using for Generic Repository*/
+        {
+            return _dbContext.Set<T>().SingleOrDefault(matchitem) != null;
+        }
+        public async Task<bool> ExistAsync(Expression<Func<T, bool>> matchitem)
+        {
+            return await _dbContext.Set<T>().SingleOrDefaultAsync(matchitem) != null;
+        }
+        public bool Exists(Expression<Func<T, bool>> matchitem) /*Using for Manage Operations*/
         {
             return _dbContext.Set<T>().SingleOrDefault(matchitem) != null;
         }

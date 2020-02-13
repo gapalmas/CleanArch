@@ -1,8 +1,8 @@
-﻿using App.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using App.Core.Entities;
 
 namespace App.Core.Interfaces
 {
@@ -20,9 +20,9 @@ namespace App.Core.Interfaces
         Task<IEnumerable<T>> ReadAsync();
         Boolean Exist(Expression<Func<T, bool>> matchitem);
         Task<Boolean> ExistAsync(Expression<Func<T, bool>> matchitem);
-        T Find(Expression<Func<T, bool>> matchitem);
+        T Find(Expression<Func<T, bool>> matchitem); /*Single Item*/
         Task<T> FindAsync(Expression<Func<T, bool>> matchitem);
-        IEnumerable<T> FindAll(Expression<Func<T, bool>> matchitem);
+        IEnumerable<T> FindAll(Expression<Func<T, bool>> matchitem); /*Many Items*/
         Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> matchitem);
         IEnumerable<T> FindAllWhere(Expression<Func<T, bool>> matchitem);
         Task<IEnumerable<T>> FindAllWhereAsync(Expression<Func<T, bool>> matchitem);

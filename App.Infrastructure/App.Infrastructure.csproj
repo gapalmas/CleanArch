@@ -20,13 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="App.Core">
-      <HintPath>..\App.Core\bin\Debug\netcoreapp2.2\App.Core.dll</HintPath>
-    </Reference>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Reference Include="App.Core">
+      <HintPath>..\App.Core\bin\Debug\netcoreapp2.2\App.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
