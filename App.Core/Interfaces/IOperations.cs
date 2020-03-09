@@ -23,6 +23,8 @@ namespace App.Core.Interfaces
         IEnumerable<T> FindAll(Expression<Func<T, bool>> matchitem);
         Task<IEnumerable<T>> FindAllTakeAsync(int count);
         Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> matchitem);
+        IEnumerable<T> FindAllInclude(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);
+        Task<IEnumerable<T>> FindAllIncludeAsync(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);
         #endregion
         #region 'UPDATE'
         T Update(T Data);

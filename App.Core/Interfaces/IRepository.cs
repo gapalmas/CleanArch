@@ -23,6 +23,8 @@ namespace App.Core.Interfaces
         T Find(Expression<Func<T, bool>> matchitem); /*Single Item*/
         Task<T> FindAsync(Expression<Func<T, bool>> matchitem);
         IEnumerable<T> FindAll(Expression<Func<T, bool>> matchitem); /*Many Items*/
+        IEnumerable<T> FindAllInclude(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);/*Include Relationship of T*/
+        Task<IEnumerable<T>> FindAllIncludeAsync(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria); /*Include Relationship of T*/
         Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> matchitem);
         IEnumerable<T> FindAllWhere(Expression<Func<T, bool>> matchitem);
         Task<IEnumerable<T>> FindAllWhereAsync(Expression<Func<T, bool>> matchitem);
