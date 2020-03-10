@@ -9,8 +9,9 @@ namespace App.Core.Interfaces
     {
         #region'CREATE'
         T Create(T Data);
+        Task<T> CreateAsync(T Data);
         IEnumerable<T> AddRange(IEnumerable<T> Data);
-        IEnumerable<T> AddRangeAsync(IEnumerable<T> Data);
+        Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> Data);
         #endregion
         #region'READ'
         T Read(T Data);
@@ -28,10 +29,13 @@ namespace App.Core.Interfaces
         #endregion
         #region 'UPDATE'
         T Update(T Data);
-        T UpdateAsync(T Data);
+        Task<T> UpdateAsync(T Data);
         #endregion
         #region'DELETE'
         T Delete(T Data);
+        Task<T> DeleteAsync(T Data);
+        IEnumerable<T> DeleteRange(IEnumerable<T> Data);
+        Task<IEnumerable<T>> DeleteRangeAsync(IEnumerable<T> Data);
         #endregion
         #region'COUNT'
         int Count();

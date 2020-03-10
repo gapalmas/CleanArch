@@ -20,18 +20,19 @@ namespace App.Core.UseCases
         #region 'Create'
         public T Create(T Data)
         {
-            Repository.CreateAsync(Data);
-            return Data;
+            return Repository.Create(Data);
+        }
+        public Task<T> CreateAsync(T Data)
+        {
+            return Repository.CreateAsync(Data);
         }
         public IEnumerable<T> AddRange(IEnumerable<T> Data)
         {
-            Repository.AddRange(Data);
-            return Data;
+            return Repository.AddRange(Data);
         }
-        public IEnumerable<T> AddRangeAsync(IEnumerable<T> Data)
+        public Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> Data)
         {
-            Repository.AddRangeAsync(Data);
-            return Data;
+            return Repository.AddRangeAsync(Data);
         }
         #endregion
         #region 'Read'
@@ -87,20 +88,29 @@ namespace App.Core.UseCases
         #region'Update'
         public T Update(T Data)
         {
-            Repository.Update(Data);
-            return Data;
+            return Repository.Update(Data);
         }
-        public T UpdateAsync(T Data)
+        public Task<T> UpdateAsync(T Data)
         {
-            Repository.UpdateAsync(Data);
-            return Data;
+            return Repository.UpdateAsync(Data);
         }
         #endregion
         #region 'Delete'
         public T Delete(T Data)
         {
-            Repository.DeleteAsync(Data);
-            return Data;
+            return Repository.Delete(Data);
+        }
+        public Task<T> DeleteAsync(T Data)
+        {
+            return Repository.DeleteAsync(Data);
+        }
+        public IEnumerable<T> DeleteRange(IEnumerable<T> Data)
+        {
+            return Repository.DeleteRange(Data);
+        }
+        public Task<IEnumerable<T>> DeleteRangeAsync(IEnumerable<T> Data)
+        {
+            return Repository.DeleteRangeAsync(Data);
         }
         #endregion
         #region'Count'
