@@ -16,6 +16,8 @@ namespace App.Core.Interfaces
         #region'READ'
         T Read(T Data);
         T Find(Expression<Func<T, bool>> matchitem);
+        T FindInclude(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);
+        Task<T> FindIncludeAsync(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);
         IEnumerable<T> FindAllWhere(Expression<System.Func<T, bool>> matchitem);
         IEnumerable<T> FindAllWhereTake(Expression<System.Func<T, bool>> matchitem, int count);
         IEnumerable<T> FindAllTake(int count);

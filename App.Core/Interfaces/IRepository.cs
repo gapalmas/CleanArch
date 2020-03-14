@@ -22,6 +22,8 @@ namespace App.Core.Interfaces
         Task<Boolean> ExistAsync(Expression<Func<T, bool>> matchitem);
         T Find(Expression<Func<T, bool>> matchitem); /*Single Item*/
         Task<T> FindAsync(Expression<Func<T, bool>> matchitem);
+        T FindInclude(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);
+        Task<T> FindIncludeAsync(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);
         IEnumerable<T> FindAll(Expression<Func<T, bool>> matchitem); /*Many Items*/
         IEnumerable<T> FindAllInclude(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria);/*Include Relationship of T*/
         Task<IEnumerable<T>> FindAllIncludeAsync(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria); /*Include Relationship of T*/

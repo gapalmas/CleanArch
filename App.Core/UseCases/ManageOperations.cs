@@ -52,6 +52,14 @@ namespace App.Core.UseCases
         {
             return Repository.FindAsync(matchitem);
         }
+        public T FindInclude(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria)
+        {
+            return Repository.FindInclude(matchitem, criteria);
+        }
+        public Task<T> FindIncludeAsync(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria)
+        {
+            return Repository.FindIncludeAsync(matchitem, criteria);
+        }
         public IEnumerable<T> FindAllWhere(Expression<Func<T, bool>> matchitem)
         {
             return Repository.FindAllWhere(matchitem);

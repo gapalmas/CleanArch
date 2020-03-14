@@ -56,6 +56,14 @@ namespace App.Infrastructure.Data
         {
             return await _dbContext.Set<T>().SingleOrDefaultAsync(matchitem);
         }
+        public T FindInclude(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria)
+        {
+            return _dbContext.Set<T>().Include(criteria).SingleOrDefault(matchitem);
+        }
+        public async Task<T> FindIncludeAsync(Expression<Func<T, bool>> matchitem, Expression<Func<T, object>> criteria)
+        {
+            return await _dbContext.Set<T>().Include(criteria).SingleOrDefaultAsync(matchitem);
+        }
         public IEnumerable<T> FindAll(Expression<Func<T, bool>> matchitem)
         {
             return _dbContext.Set<T>().Where(matchitem).ToList();
